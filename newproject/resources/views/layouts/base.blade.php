@@ -13,10 +13,7 @@
         <span>Hello, User</span>
     </nav>
     <section class="p-12 mx-auto max-w-6xl text-gray-800">
-        <h1 class="text-4xl font-bold">Home</h1>
-        <p class="mt-4 text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, temporibus corporis nisi et tempora maxime explicabo, expedita vero tempore quidem quod autem sapiente ea reprehenderit? Iste praesentium ratione aspernatur corrupti.
-        </p>
+    
     </section>
     
 </body>
