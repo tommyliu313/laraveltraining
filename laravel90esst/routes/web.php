@@ -31,4 +31,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('/notes', NoteController::class)->middleware(['auth']);
 
+Route::get('/trashed', []);
+
 require __DIR__.'/auth.php';
