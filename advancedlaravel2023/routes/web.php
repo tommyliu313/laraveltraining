@@ -19,15 +19,20 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function(){
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth','role:'])->name('dashboard');
 
 Route::get('/instructor/dashboard', function(){
     return view('member.dashboard');
-})->middleware(['auth'])->name('member.dashboard');
+})->middleware(['auth','role:'])->name('member.dashboard');
+
+
+Route::resource('/instructor/schedule', ScheduledClassController::class)
+->only(['index','create','store','destroy'])
+->middleware(['auth','role:instructor']);
 
 Route::get('/admin/dashboard', function(){
     return view('admin.dashboard');
-})->middleware(['auth'])->name('admin.dashboard');
+})->middleware(['auth','role:'])->name('admin.dashboard');
 
 Route::middleware('auth')->group(function(){
     Route::get('/profile',[ProfileController::class, 'edit'])->name('profile.edit');
