@@ -27,8 +27,8 @@ Route::get('/instructor/dashboard', function(){
 
 
 Route::resource('/instructor/schedule', ScheduledClassController::class)
-->only(['index','create','store','destroy'])
-->middleware(['auth','role:instructor']);
+    ->only(['index','create','store','destroy'])
+    ->middleware(['auth','role:instructor']);
 
 Route::get('/admin/dashboard', function(){
     return view('admin.dashboard');
