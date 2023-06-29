@@ -21,6 +21,10 @@ class NotifyClassCanceled
      */
     public function handle(ClassCanceled $event): void
     {
-        //
+        $members = $event->scheduledClass->members();
+        $members->each(function($user){
+            Mail::to($user)->send(new ClassCanceledMail);
+        })
+
     }
 }
