@@ -24,6 +24,8 @@ class AnimalController extends Controller
         $animals = Animal::orderBy('id','desc')
                 ->paginate($limit)
                 ->appends($request->query());
+
+        return response($animals, Response::HTTP_OK);
     }
 
     /**
@@ -64,7 +66,16 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $this->validate($request, [
+            'type_id' => 'nullable|integer',
+            'name' => 'string|max:255',
+            'birthday' => 'nullable|date',
+            'area' => 'nullable|string|max:255',
+            'fix' => 'boolean',
+            'description' => 'nullable|string',
+            'personality' => 'nullable|string',
+        ]);
+        
     }
 
     /**

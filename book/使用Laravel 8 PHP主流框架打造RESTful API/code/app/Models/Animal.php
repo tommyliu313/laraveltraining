@@ -23,4 +23,13 @@ class Animal extends Model
     public function type(){
         return $this->belongsTo('App\Models\Type');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function likes(){
+        return $this->belongsToMany('App\Models\User', 'animal_user_likes')
+            ->withTimestamps();
+    }
 }
